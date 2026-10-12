@@ -1,0 +1,205 @@
+{
+  "date": "2026-10-12",
+  "timezone": "America/Santiago",
+  "base_commit": "b3fdf11d92659f6aa7f1b8965f8669f77b78edfd",
+  "branch": "fix/analog-ubsan-signed-shifts",
+  "worktree": "/Users/mfaundez/git/github/Felucca-worktrees/analog-ubsan-signed-shifts",
+  "working_tree_state": "VALIDATED_PRE_COMMIT",
+  "source_fingerprint": "1fb5d91d11a321e6cbf051202af4994872948020e0c563fc6730f011caa568d3",
+  "tracked_diff_sha256": "16a46fc5ff7b1c88acd05d52696707a65aedec54d39760fa37554f3f9088b0d8",
+  "source_manifest": "002-analog-ubsan-source-manifest.json",
+  "scope": [
+    "firmware/src/eng_analog.c",
+    "tests/run_tests.sh",
+    "tests/analog_ubsan_test.c"
+  ],
+  "build": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "full_suite": {
+    "status": "PASS",
+    "exit_code": 0,
+    "gates": 99,
+    "log": "suite.log"
+  },
+  "strict_checks": {
+    "analog_sweep": "PASS_NO_DIAGNOSTICS",
+    "midi_nrpn": "PASS_NO_DIAGNOSTICS",
+    "nor_roundtrip": "PASS_NO_DIAGNOSTICS",
+    "flags": "-O1 -g -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer",
+    "ubsan_exclusions": [],
+    "asan_options": "detect_leaks=0"
+  },
+  "baseline_reproduction": {
+    "midi_original_diagnostics": 2,
+    "analog_expanded_diagnostics": [
+      "tests/../firmware/src/eng_analog.c:131:67: runtime error: left shift of negative value -16384",
+      "tests/../firmware/src/eng_analog.c:177:19: runtime error: left shift of negative value -1",
+      "tests/../firmware/src/eng_analog.c:179:38: runtime error: left shift of negative value -1",
+      "tests/../firmware/src/eng_analog.c:107:76: runtime error: left shift of negative value -1",
+      "tests/../firmware/src/eng_analog.c:108:38: runtime error: left shift of negative value -1"
+    ],
+    "halt_on_error_exit": 134,
+    "status": "EXPECTED_FAILURE_REPRODUCED"
+  },
+  "audio": {
+    "analog_cases": 1890,
+    "baseline_and_fix_hash": "aea76a7387be2d18",
+    "negative_samples": 410352,
+    "positive_samples": 313949,
+    "global_goldens": 92,
+    "goldens_changed": 0,
+    "native_vs_wasm_frames": 88200,
+    "native_vs_wasm": "BIT_IDENTICAL"
+  },
+  "artifacts": {
+    "build/felucca.bin": {
+      "bytes": 496108,
+      "sha256": "7498bda361bc0ecca979fd867aee52db50fbf22aa5f01e8753f88358654e86d0"
+    },
+    "build/felucca.elf": {
+      "bytes": 548552,
+      "sha256": "1fa8931a466c5452f9f5c64164555e7f6b354f8ac77e6b38ef869522a1d42d09"
+    },
+    "build/felucca.o": {
+      "bytes": 1128064,
+      "sha256": "a3b26370b7004ac1632e1b8a2d548023197e5eea0dad3fe8e683c9032c9b6e73"
+    },
+    "build/loader/ota.bin": {
+      "bytes": 6930,
+      "sha256": "a48ee499520cb16750e2504264bd8a8cd3e13ea953bbf319537cb840eb0d2115"
+    },
+    "build/felucca.fwsc": {
+      "bytes": 610086,
+      "sha256": "cbf860b88066f03ab68165aa8a0658eb1465f5cbae75b5d52372899794c50087"
+    },
+    "build/emu/felucca.wasm": {
+      "bytes": 747464,
+      "sha256": "6ec07c8767b66e0f2f489ab2a33582ad1db1331ce4a55e74c450e48bfff07a03"
+    },
+    "build/analog-fixed-stack.wasm": {
+      "bytes": 747589,
+      "sha256": "b35141b95724d0fc308a597d6c425592755db61d1cd0dc18e2637dcf656617e8"
+    }
+  },
+  "target_comparison": {
+    "build/felucca.bin": {
+      "baseline_bytes": 496108,
+      "fixed_bytes": 496108,
+      "baseline_sha256": "7498bda361bc0ecca979fd867aee52db50fbf22aa5f01e8753f88358654e86d0",
+      "fixed_sha256": "7498bda361bc0ecca979fd867aee52db50fbf22aa5f01e8753f88358654e86d0",
+      "identical": true
+    },
+    "build/felucca.elf": {
+      "baseline_bytes": 548552,
+      "fixed_bytes": 548552,
+      "baseline_sha256": "1fa8931a466c5452f9f5c64164555e7f6b354f8ac77e6b38ef869522a1d42d09",
+      "fixed_sha256": "1fa8931a466c5452f9f5c64164555e7f6b354f8ac77e6b38ef869522a1d42d09",
+      "identical": true
+    },
+    "build/felucca.o": {
+      "baseline_bytes": 1128064,
+      "fixed_bytes": 1128064,
+      "baseline_sha256": "a3b26370b7004ac1632e1b8a2d548023197e5eea0dad3fe8e683c9032c9b6e73",
+      "fixed_sha256": "a3b26370b7004ac1632e1b8a2d548023197e5eea0dad3fe8e683c9032c9b6e73",
+      "identical": true
+    },
+    "build/loader/ota.bin": {
+      "baseline_bytes": 6930,
+      "fixed_bytes": 6930,
+      "baseline_sha256": "a48ee499520cb16750e2504264bd8a8cd3e13ea953bbf319537cb840eb0d2115",
+      "fixed_sha256": "a48ee499520cb16750e2504264bd8a8cd3e13ea953bbf319537cb840eb0d2115",
+      "identical": true
+    },
+    "build/felucca.fwsc": {
+      "baseline_bytes": 610086,
+      "fixed_bytes": 610086,
+      "baseline_sha256": "cbf860b88066f03ab68165aa8a0658eb1465f5cbae75b5d52372899794c50087",
+      "fixed_sha256": "cbf860b88066f03ab68165aa8a0658eb1465f5cbae75b5d52372899794c50087",
+      "identical": true
+    }
+  },
+  "target_memory": {
+    "variables_bytes": 55060,
+    "variables_free_bytes": 18668,
+    "pool_bytes": 327800,
+    "pool_free_bytes": 40840,
+    "delta_vs_nrpn": 0,
+    "frames": "UNCHANGED_OBJECT_BYTE_IDENTICAL",
+    "hardware_stack_maximum": "NOT_CERTIFIED"
+  },
+  "wasm_watermark": {
+    "status": "PASS",
+    "results": [
+      {
+        "pattern": 165,
+        "seed": 7,
+        "stack_reserved": 1048576,
+        "observed_touched_bytes": {
+          "boot": 1114,
+          "heavy_song": 1114,
+          "nrpn_bursts": 1114,
+          "save": 1984
+        },
+        "messages": 106988,
+        "dropped": 4698,
+        "peak": 0.316619873046875,
+        "user_preset_written": true,
+        "memory_bytes": 33554432,
+        "stack_pointer_restored": true,
+        "note": "Written-byte watermark only. Excludes untouched frame slots, VM call/value stacks and pi32v2 ABI/IRQs."
+      },
+      {
+        "pattern": 90,
+        "seed": 7,
+        "stack_reserved": 1048576,
+        "observed_touched_bytes": {
+          "boot": 1114,
+          "heavy_song": 1114,
+          "nrpn_bursts": 1114,
+          "save": 1984
+        },
+        "messages": 106988,
+        "dropped": 4698,
+        "peak": 0.316619873046875,
+        "user_preset_written": true,
+        "memory_bytes": 33554432,
+        "stack_pointer_restored": true,
+        "note": "Written-byte watermark only. Excludes untouched frame slots, VM call/value stacks and pi32v2 ABI/IRQs."
+      }
+    ],
+    "scope": "written bytes in WASM C data-stack, not target high-water"
+  },
+  "nrpn_wasm": {
+    "status": "PASS",
+    "checks": 11
+  },
+  "official_v15_fixture": {
+    "status": "PASS_SIMULATED_RESTORE",
+    "sha256": "db1642b2b6fa5c2cccb11ffd13878068bb28601678d3644049f99dc40e7edb8a"
+  },
+  "skips": [
+    "== skip PHYS reference test (no DaisySP: set DAISYSP to a checkout)",
+    "editor: MENU settings (this editor has none)                     skip",
+    "FM6 bank: (editor.html has no voice bank sender)                 skip",
+    "MIDI LEARN: (editor.html has no learn map)                       skip",
+    "Physical USB/TRS/Hapax and target stack/IRQ/guard behavior: no hardware authorization"
+  ],
+  "legacy_sanitizers_note": "Existing broad profile exclusions remain unchanged for other suites; new ANALOG/MIDI gates are strict. No assertion of global UB absence.",
+  "goldens_and_budgets_modified": false,
+  "device_access": false,
+  "flash_authorized": false,
+  "qa_phase_commit_push": false,
+  "publication_authorized": {
+    "remote": "origin",
+    "repository": "ordenador/Felucca",
+    "branch": "fix/analog-ubsan-signed-shifts",
+    "actions": [
+      "commit",
+      "push"
+    ],
+    "flash": false
+  },
+  "local_full_evidence_archive": "/Users/mfaundez/.codex/qa/felucca/runs/2026-10-12-analog-ubsan-b3fdf11"
+}

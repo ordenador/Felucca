@@ -40,3 +40,15 @@ Evidencia de implementación en el worktree: [001-nrpn-hapax.md](/Users/mfaundez
 ## Publicación posterior a QA
 
 Mario autorizó commit y push de esta implementación a su fork `ordenador/Felucca` en `feat/midi-nrpn-per-channel`, manteniendo la prohibición de flasheo. Los resultados de QA corresponden al snapshot identificado en la evidencia; las fuentes se comprobaron sin drift antes de publicar.
+
+## Corrección ANALOG — 12 de octubre de 2026
+
+Los shifts negativos detectados durante QA NRPN se corrigieron en
+`fix/analog-ubsan-signed-shifts`, sobre `b3fdf11`. Gate estricto ANALOG y MIDI/NRPN
+sin exclusiones, NOR estricto y suite de99 gates PASS;92 goldens sin cambios.
+Objeto/ELF/app/loader/paquete target idénticos al baseline NRPN: cero delta de
+RAM/pool/frames. Los resultados anteriores son evidencia histórica del código
+previo al fix. [Informe y límites](evidence/002-analog-ubsan.md).
+
+Mario autorizó commit y push de esta rama a su fork, sin flashear. La aceptación
+física y el máximo absoluto de pila target siguen pendientes/no certificados.
