@@ -306,6 +306,12 @@ way as from the menu, in the same tabs.
   layer's map while it shows
 - **HARDWARE CALIBRATION**, **INFO** (the version, the USB link and the CPU load) and **ABOUT**
 
+## NRPN por canal (extensión de este fork)
+
+Este fork agrega 90 destinos NRPN de siete bits por canal: 82 parámetros comunes y E1–E8 del motor actual. CC99/98 seleccionan la dirección y CC6 envía el valor; los CC actuales, MIDI LEARN, RPN0 de bend y Program Change conservan sus funciones. No consume los 16 slots LEARN. Selección independiente USB/TRS; el canal sigue ROUT. Requiere este firmware modificado, no la release original v1.5.1.
+
+Consultar [protocolo y límites](docs/midi-nrpn.md), [definición Hapax POLY](docs/hapax/felucca-nrpn-poly.txt), [DRUM](docs/hapax/felucca-nrpn-drum.txt) y [evidencia de pruebas](plans/evidence/001-nrpn-hapax.md). La prueba física con Hapax/FM-1 está pendiente; todavía no se ha flasheado.
+
 ## Engines
 
 In the order the device lists them:

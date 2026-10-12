@@ -1,0 +1,148 @@
+# Felucca fork NRPN v1 - requiere firmware modificado
+VERSION 1
+TRACKNAME Felucca NRPN Drum
+TYPE DRUM
+OUTPORT NULL
+OUTCHAN 4
+INPORT NULL
+INCHAN NULL
+MAXRATE NULL
+
+[DRUMLANES]
+1:NULL:4:36 Bombo
+2:NULL:4:38 Caja
+3:NULL:4:39 Palmas
+4:NULL:4:42 Hat cerrado
+5:NULL:4:46 Hat abierto
+6:NULL:4:45 Tom
+7:NULL:4:37 Aro
+8:NULL:4:56 Campana
+[/DRUMLANES]
+
+[CC]
+1 Mod Wheel Matriz
+7 Nivel
+10 Panorama
+11 Expresion Matriz
+74 Brillo Motor
+91 Envio Reverb
+93 Envio Chorus
+94 Envio Delay
+120 All Sound Off
+121 Reset Controllers
+123 All Notes Off
+[/CC]
+
+[PC]
+1 STD
+2 80
+3 10
+4 66
+5 55
+6 77
+[/PC]
+
+[NRPN]
+0:0:7 Nivel
+0:1:7 ENV Ataque
+0:2:7 ENV Decaimiento
+0:3:7 ENV Sostenido
+0:4:7 ENV Liberacion
+0:5:7 ENV Filtro
+0:6:7 ENV Tono
+0:7:7 ENV Forma
+0:9:7 LFO Frecuencia
+0:10:7 LFO Onda
+0:11:7 LFO Fase
+0:12:7 LFO Entrada
+0:13:7 LFO Tono
+0:14:7 LFO Filtro
+0:15:7 LFO Forma
+0:16:7 LFO Amplitud
+0:17:7 Arp Modo
+0:18:7 Arp Frecuencia
+0:19:7 Arp Octavas
+0:20:7 Arp Duracion
+0:21:7 Arp Swing
+0:22:7 Arp Probabilidad
+0:23:7 Arp Retener
+0:24:7 Arp Orden
+0:25:7 Escala Raiz
+0:26:7 Escala
+0:27:7 Cuantizar
+0:28:7 Transposicion
+0:29:7 Secuencia Longitud
+0:30:7 Secuencia Division
+0:31:7 Secuencia Swing
+0:32:7 Secuencia Duracion
+0:33:7 Distorsion
+0:34:7 Envio Chorus
+0:35:7 Envio Delay
+0:36:7 Envio Reverb
+0:37:7 Voz Modo
+0:38:7 Portamento
+0:39:7 Panorama
+0:40:7 Silencio
+0:41:7 Portamento Modo
+0:42:7 Voz Prioridad
+0:43:7 Voz Asignacion
+0:44:7 Desafinacion
+0:45:7 Slicer Modo
+0:46:7 Slicer Patron
+0:47:7 Slicer Frecuencia
+0:48:7 Slicer Profundidad
+0:49:7 Matriz1 Fuente
+0:50:7 Matriz1 Destino
+0:51:7 Matriz1 Cantidad
+0:52:7 Matriz2 Fuente
+0:53:7 Matriz2 Destino
+0:54:7 Matriz2 Cantidad
+0:55:7 Matriz3 Fuente
+0:56:7 Matriz3 Destino
+0:57:7 Matriz3 Cantidad
+0:58:7 Matriz4 Fuente
+0:59:7 Matriz4 Destino
+0:60:7 Matriz4 Cantidad
+0:81:7 Acorde
+0:82:7 Voces Acorde
+0:83:7 Bateria Bombo
+0:84:7 Bateria Caja
+0:85:7 Bateria Palmas
+0:86:7 Bateria Hat Cerrado
+0:87:7 Bateria Hat Abierto
+0:88:7 Bateria Tom
+0:89:7 Bateria Aro
+0:90:7 Bateria Campana
+0:91:7 LFO Sync
+0:92:7 LFO Disparo
+0:93:7 LFO Polaridad
+0:94:7 Secuencia Cuantizar
+0:95:7 Apertura
+0:96:7 Insert Tipo
+0:97:7 Insert A
+0:98:7 Insert B
+0:99:7 Insert C
+0:100:7 Insert Mezcla
+0:101:7 Analog Filtro Tipo
+0:102:7 ENV Sync
+1:0:7 Motor E1
+1:1:7 Motor E2
+1:2:7 Motor E3
+1:3:7 Motor E4
+1:4:7 Motor E5
+1:5:7 Motor E6
+1:6:7 Motor E7
+1:7:7 Motor E8
+[/NRPN]
+
+[COMMENT]
+90 destinos NRPN sin consumir MIDI LEARN Valores de 7 bits
+Crear lanes manualmente E1-E8 dependen del motor actual
+Los CC aprendidos conservan prioridad sobre los CC fijos
+Mod Wheel y Expresion requieren destinos en la matriz
+ADSR comun no afecta FM6 ni DRUM Brillo y resonancia dependen del motor
+CC6 y CC38 conservan Data Entry de RPN0 al seleccionar RPN0
+Segundo equipo CH5-8 bateria OUTCHAN8 y canales de todas las lanes a 8
+Sin Bank Select ni control individual de operadores FM6
+Ver documento MIDI NRPN antes de configurar
+[/COMMENT]
